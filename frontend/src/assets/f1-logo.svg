@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" width="140" height="140">
+  <rect x="0" y="0" width="140" height="140" rx="14" fill="#1a1a1a" stroke="#444" stroke-width="1"/>
+  <rect x="13" y="13" width="114" height="114" rx="9" fill="#222" stroke="#666" stroke-width="4"/>
+  <text x="70" y="82" text-anchor="middle" font-size="44" font-weight="700" font-family="monospace" fill="#ffffff">F1</text>
+  <text x="70" y="103" text-anchor="middle" font-size="12" font-family="sans-serif" fill="rgba(255,255,255,0.55)">for help</text>
+</svg>

@@ -3,6 +3,8 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
 
+import f1Logo from '../assets/f1-logo.svg'
+
 export default function Footer() {
     return (
         <Box
@@ -17,11 +19,14 @@ export default function Footer() {
         >
             <Divider sx={{ mb: 3, borderColor: 'rgba(255,255,255,0.2)' }} />
             <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 2 }}>
-                <Box>
-                    <Typography variant="h6">Nicholas A. Ball Ulmer</Typography>
-                    <Typography variant="body2" sx={{ opacity: 0.7 }}>
-                        Software Engineer · Game Developer · Language Enthusiast
-                    </Typography>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                    <img src={f1Logo} alt="F1 for help logo" style={{ height: '100px', width: '100px' }} />
+                    <Box>
+                        <Typography variant="h6">Nicholas A. Ball Ulmer</Typography>
+                        <Typography variant="body2" sx={{ opacity: 0.7 }}>
+                            Software Engineer · Game Developer · Language Enthusiast
+                        </Typography>
+                    </Box>
                 </Box>
                 <Box>
                     <IconButton color="inherit" href="https://github.com/nick-ulmer" target="_blank">
