@@ -10,8 +10,8 @@ function Navbar() {
                 </Typography>
                 <Box>
                     <Button color="inherit" component={Link} to="/">Home</Button>
-                    <Button color="inherit" component={Link} to="/about">About</Button>
                     <Button color="inherit" component={Link} to="/gamedev">Game Dev</Button>
+                    <Button color="inherit" component={Link} to="/about">About</Button>
                 </Box>
             </Toolbar>
         </AppBar>
