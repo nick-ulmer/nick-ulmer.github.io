@@ -3,7 +3,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
 
-function Footer() {
+export default function Footer() {
     return (
         <Box
             component="footer"
@@ -27,10 +27,10 @@ function Footer() {
                     <IconButton color="inherit" href="https://github.com/nick-ulmer" target="_blank">
                         <GitHubIcon />
                     </IconButton>
-                    <IconButton color="inherit" href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank">
+                    <IconButton color="inherit" href="https://linkedin.com/in/nicholas-ball-ulmer/" target="_blank">
                         <LinkedInIcon />
                     </IconButton>
-                    <IconButton color="inherit" href="mailto:YOUR_EMAIL">
+                    <IconButton color="inherit" href="mailto:nball1000@gmail.com">
                         <EmailIcon />
                     </IconButton>
                 </Box>
@@ -41,5 +41,3 @@ function Footer() {
         </Box>
     );
 }
-
-export default Footer;

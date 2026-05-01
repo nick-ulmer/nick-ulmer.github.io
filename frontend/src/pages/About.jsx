@@ -1,4 +1,9 @@
-function About() {
+import { useEffect } from 'react';
+
+export default function About() {
+    useEffect(() => {
+        document.title = 'About Page | Nicholas A. Ball Ulmer';
+    }, []);
     return (
         <div style={{ padding: '2rem' }}>
             <h1>About</h1>
@@ -8,5 +13,3 @@ function About() {
         </div>
     )
 }
-
-export default About
