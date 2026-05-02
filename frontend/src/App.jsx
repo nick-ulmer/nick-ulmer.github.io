@@ -4,7 +4,10 @@ import { useEffect } from 'react';
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
+import Contact from './pages/Contact'
 import About from './pages/About'
+import Creed from './pages/Creed'
+
 import PortfolioOverview from './pages/portfolio/PortfolioOverview'
 import GameDevPortfolio from './pages/portfolio/gamedev/GameDevPortfolio'
 import SoftwarePortfolio from './pages/portfolio/software/SoftwarePortfolio'
@@ -38,6 +41,8 @@ export default function App() {
             <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
                     <Routes>
                     <Route path="/" element={<Home />} />
+                    <Route path="/contact" element={<Contact />} />
+                    <Route path="/creed" element={<Creed />} />
                     <Route path="/about" element={<About />} />
                     <Route path="/portfolio" element={<PortfolioOverview />} />
                     <Route path="/portfolio/gamedev" element={<GameDevPortfolio />} />

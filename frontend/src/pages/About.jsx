@@ -1,87 +1,80 @@
 import { useEffect } from 'react';
-import { Box, Container, Typography, Paper, Avatar, Stack } from '@mui/material';
+import { Box, Container, Typography, Paper, Stack } from '@mui/material';
 
 export default function About() {
     useEffect(() => {
         document.title = 'About Page | Nicholas A. Ball Ulmer';
     }, []);
-	return (
-		<Container maxWidth="md" sx={{ py: 6 }}>
-			<Paper
-				elevation={0}
-				sx={{
-					p: 4,
-					borderRadius: 2,
-					backgroundColor: '#ffffff',
-				}}
-			>
-				<Stack spacing={4} alignItems="center">
 
-					{/* Profile Image Section */}
-					<Avatar
-						sx={{
-							width: 140,
-							height: 140,
-							bgcolor: '#757575',
-							fontSize: 40,
-						}}
-					>
-						IMG
-					</Avatar>
+    return (
+        <Container maxWidth="md" sx={{ py: 6 }}>
+            <Paper elevation={0} sx={{ p: 4, borderRadius: 2, backgroundColor: '#ffffff' }}>
+                <Box sx={{ display: 'flex', gap: 6, alignItems: 'flex-start' }}>
 
-					{/* Name / Header */}
-					<Box textAlign="center">
-						<Typography variant="h4" fontWeight={600}>
-							Nicholas A. Ball Ulmer
-						</Typography>
+                    {/* Image */}
+                    <Box
+                        component="img"
+                        src="/images/photo_1.jpg"
+                        alt="Nicholas A. Ball Ulmer"
+                        sx={{
+                            width: 280,
+                            minWidth: 280,
+                            height: 360,
+                            borderRadius: 2,
+                            objectFit: 'cover',
+                            objectPosition: 'center center',
+                        }}
+                    />
 
-						<Typography variant="subtitle1" color="text.secondary">
-							Full-Stack Developer • Game Developer • Systems Builder
-						</Typography>
-					</Box>
+                    {/* Content */}
+                    <Stack spacing={3}>
+                        <Box>
+                            <Typography variant="h4" fontWeight={600}>
+                                Nicholas A. Ball Ulmer
+                            </Typography>
+                            <Typography variant="subtitle1" color="text.secondary">
+                                Full-Stack Developer • Game Developer • Systems Builder
+                            </Typography>
+                        </Box>
 
-					{/* Body Content */}
-					<Box sx={{ width: '100%' }}>
-						<Typography variant="body1" paragraph>
-							I am a software developer focused on building systems across
-							full-stack web development and game development. I enjoy working
-							on structured systems, interactive applications, and exploring
-							the intersection between computation and creative expression.
-						</Typography>
-                        <br />
+                        <Typography variant="body1" paragraph>
+                            I am an idealist that would love to see a world inhabited by
+                            life-long learners. After I have the resources to sustain myself,
+                            I look forward to building the new world where everyone can
+                            individually contribute to the future of humanity and our
+                            collective consciousness out in the cosmos.
+                        </Typography>
 
-						<Typography variant="body1" paragraph>
-							My current stack centers around React, Material UI, and
-							Java Spring Boot for backend systems. I am also actively
-							developing game projects in Unity and GMS2.
-						</Typography>
-                        <br />
+                        <Typography variant="body1" paragraph>
+                            My current focus in life is on starting my career in software
+                            and automation. I love to imagine new applications built to better
+                            people's brains. I also love teaching, language learning, and academia
+                            in cognitive neuroscience.
+                        </Typography>
 
-						<Typography variant="body1" paragraph>
-							This site serves as a portfolio of my technical work, personal
-							explorations, and ongoing projects.
-						</Typography>
-					</Box>
+                        <Typography variant="body1" paragraph>
+                            This site serves as a portfolio of my technical work, personal
+                            explorations, ongoing projects, and philosophy.
+                        </Typography>
 
-					{/* Skills Section */}
-					<Box sx={{ width: '100%' }}>
-						<Typography variant="h6" gutterBottom>
-							Core Interests
-						</Typography>
+                        <Box>
+                            <Typography variant="h6" gutterBottom>
+                                Core Interests
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary">
+                                • Full-stack web applications like this one (React + backend systems)
+                                <br />
+                                • Software architecture and tooling
+                                <br />
+                                • AI / computational systems (exploratory)
+                                <br />
+                                • Game development (systems, mechanics, design)
+                            </Typography>
+                        </Box>
+                    </Stack>
 
-						<Typography variant="body2" color="text.secondary">
-							• Full-stack web applications like this one (React + backend systems)
-							<br />
-							• Software architecture and tooling
-							<br />
-							• AI / computational systems (exploratory)
-							<br />
-							• Game development (systems, mechanics, design)
-						</Typography>
-					</Box>
-
-				</Stack>
-			</Paper>
-		</Container>
-	);
+                </Box>
+            </Paper>
+        </Container>
+    );
 }
