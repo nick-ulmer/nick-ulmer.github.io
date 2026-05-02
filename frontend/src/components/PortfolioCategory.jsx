@@ -1,27 +1,28 @@
 import { useEffect } from 'react';
-import { Container, Typography, Grid } from '@mui/material';
+import { Typography, Grid } from '@mui/material';
 import allProjects from '../data/projects';
 import ProjectCard from './ProjectCard';
+import PortfolioLayout from './PortfolioLayout';
 
-export default function PortfolioCategory({ title, pageTitle, category }) {
+export default function PortfolioCategory({ title, category }) {
     useEffect(() => {
-        document.title = pageTitle;
+        document.title = title;
     }, []);
 
-    const projects = allProjects.filter(p => p.category === category);
+    const filtered = category ? allProjects.filter(p => p.category === category) : allProjects;
 
     return (
-        <Container maxWidth="lg" sx={{ py: 6 }}>
+        <PortfolioLayout>
             <Typography variant="h3" gutterBottom>
-                Game Development
+                {title}
             </Typography>
             <Grid container spacing={4} alignItems="stretch">
-                {projects.map(project => (
+                {filtered.map(project => (
                     <Grid size={{ xs: 12, sm: 4 }} key={project.id}>
                         <ProjectCard project={project} />
                     </Grid>
                 ))}
             </Grid>
-        </Container>
+        </PortfolioLayout>
     );
 }

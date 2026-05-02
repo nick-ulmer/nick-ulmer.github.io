@@ -1,64 +1,13 @@
+import gamedevProjects from './gamedevProjects';
+import softwareProjects from './softwareProjects';
+import frontendProjects from './frontendProjects';
+import datascienceProjects from './datascienceProjects';
+
 const projects = [
-    {
-        id: 'beatkana',
-        title: 'BeatKana',
-        category: 'gamedev',
-        description: 'A rhythm game built in Unity.',
-        tech: ['Unity', 'C#'],
-        status: 'complete',
-        link: 'https://github.com/nick-ulmer/beatkana',
-        thumbnail: 'https://placehold.co/600x400',
-    },
-    {
-        id: 'lucidity',
-        title: 'Lucidity',
-        category: 'gamedev',
-        description: 'A personal project made in GMS, currently on hiatus.',
-        tech: ['GameMaker Studio'],
-        status: 'hiatus',
-        link: null,
-        thumbnail: 'https://placehold.co/600x400',
-    },
-    {
-        id: 'learntodrive',
-        title: 'LearnToDrive',
-        category: 'gamedev',
-        description: 'A mobile game teaching driving with an interactive dashboard and open world.',
-        tech: ['Unity', 'C#'],
-        status: 'in-progress',
-        link: null,
-        thumbnail: 'https://placehold.co/600x400',
-    },
-    {
-        id: 'ANOTHER GAME',
-        title: 'another game is another game',
-        category: 'gamedev',
-        description: 'something somethign template.',
-        tech: ['Unity', 'C#'],
-        status: 'in-progress',
-        link: null,
-        thumbnail: 'https://placehold.co/600x400',
-    },
-    {
-        id: 'ovo',
-        title: 'OvO',
-        category: 'software',
-        description: 'A cycle tracking app for power users and security minded people.',
-        tech: ['Java', 'Spring Boot'],
-        status: 'in-progress',
-        link: null,
-        thumbnail: 'https://placehold.co/600x400',
-    },
-    {
-        id: 'personal-site',
-        title: 'Personal Website',
-        category: 'frontend',
-        description: 'This site — a personal portfolio built with React and MUI.',
-        tech: ['React', 'Vite', 'Material UI'],
-        status: 'in-progress',
-        link: 'https://nick-ulmer.github.io',
-        thumbnail: 'https://placehold.co/600x400',
-    },
+    ...gamedevProjects,
+    ...softwareProjects,
+    ...frontendProjects,
+    ...datascienceProjects,
 ];
 
 export default projects;

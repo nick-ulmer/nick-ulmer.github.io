@@ -1,21 +1,26 @@
-import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material'
+import { ButtonBase, AppBar, Toolbar, Typography, Button, Box } from '@mui/material'
 import { Link } from 'react-router-dom'
 import f1Logo from '../assets/f1-logo.svg'
 
 export default function Navbar() {
     return (
         <AppBar position="static">
-            <Toolbar>
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, flexGrow: 1 }}>
-                    {/*<img src={f1Logo} alt="F1 for help logo" style={{ height: '36px', width: '36px' }} />*/}
-                    <Typography variant="h6">
-                        Nicholas A. Ball Ulmer
-                    </Typography>
+            <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                <Box sx={{ flex: 1, display: 'flex', alignItems: 'center' }}>
+                    <ButtonBase component={Link} to="/">
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                            <img src={f1Logo} alt="F1 for help logo" style={{ height: '48px', width: '48px' }} />
+                            <Typography variant="h5">For Help</Typography>
+                        </Box>
+                    </ButtonBase>
                 </Box>
-                <Box>
-                    <Button color="inherit" component={Link} to="/">Home</Button>
-                    <Button color="inherit" component={Link} to="/portfolio">Portfolio</Button>
-                    <Button color="inherit" component={Link} to="/about">About</Button>
+                <Box sx={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <Typography variant="h6">Nicholas A. Ball Ulmer</Typography>
+                </Box>
+                <Box sx={{ flex: 1, display: 'flex', justifyContent: 'flex-end', gap: 1 }}>
+                    <Button color="inherit" component={Link} to="/"><Typography variant="h6">Home</Typography></Button>
+                    <Button color="inherit" component={Link} to="/portfolio"><Typography variant="h6">Portfolio</Typography></Button>
+                    <Button color="inherit" component={Link} to="/about"><Typography variant="h6">About</Typography></Button>
                 </Box>
             </Toolbar>
         </AppBar>
