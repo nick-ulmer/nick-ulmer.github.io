@@ -30,6 +30,12 @@ const contacts = [
         display: 'f1forhelp.dev',
         href: 'https://f1forhelp.dev',
     },
+    {
+        icon: <LanguageIcon />,
+        label: 'Discord',
+        display: 'f1forhelp@cord',
+        href: 'https://discord.com/users/131261035674992651',
+    }
 ];
 
 export default function Contact() {

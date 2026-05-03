@@ -17,7 +17,7 @@ const gamedevProjects = [
         tech: ['GameMaker Studio'],
         status: 'hiatus',
         link: null,
-        thumbnail: 'https://placehold.co/600x400',
+        thumbnail: '/images/projects/lucidity.png',
     },
     {
         id: 'learntodrive',
