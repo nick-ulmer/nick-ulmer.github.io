@@ -3,7 +3,9 @@ import { Link, useLocation } from 'react-router-dom';
 
 const categories = [
     { label: 'About', path: '/creed', highlight: true },
-    { label: '3 Objects', path: '/creed/three-objects' },
+    { label: '3 Objects', path: '/creed/three-objects' }, // Will define individual & systematic consciousness plus the combination.
+    { label: 'To Theists', path: '/creed/to-theists' }, // Speech to convince them of the compatibility of this creed with their own.
+    { label: 'To Atheists', path: '/creed/to-atheists' }, // Speech to show an atheist that they can have true, fundamental purpose in life.
 ];
 
 export default function CreedLayout({ children }) {

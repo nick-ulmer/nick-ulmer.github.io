@@ -21,6 +21,26 @@ import OvOProject from './pages/portfolio/software/OvOProject'
 
 import NotFound from './pages/NotFound'
 
+const routes = [
+    { path: "/", element: <Home /> },
+    { path: "/contact", element: <Contact /> },
+    { path: "/creed", element: <Creed /> },
+    { path: "/about", element: <About /> },
+
+    { path: "/portfolio", element: <PortfolioOverview /> },
+    { path: "/portfolio/gamedev", element: <GameDevPortfolio /> },
+    { path: "/portfolio/software", element: <SoftwarePortfolio /> },
+    { path: "/portfolio/frontend", element: <FrontendPortfolio /> },
+    { path: "/portfolio/datascience", element: <DataSciencePortfolio /> },
+
+    { path: "/portfolio/software/ovo", element: <OvOProject /> },
+
+    /*<Route path="/portfolio/gamedev/beatkana" element={<BeatKana />} />
+    <Route path="/portfolio/gamedev/lucidity" element={<Lucidity />} />
+    <Route path="/portfolio/gamedev/learntodrive" element={<LearnToDrive />} />
+    <Route path="/portfolio/frontend/personal-site" element={<PersonalSite />} />*/
+];
+
 export default function App() {
     const navigate = useNavigate();
 
@@ -39,21 +59,14 @@ export default function App() {
         <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
             <Navbar />
             <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
-                    <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/contact" element={<Contact />} />
-                    <Route path="/creed" element={<Creed />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/portfolio" element={<PortfolioOverview />} />
-                    <Route path="/portfolio/gamedev" element={<GameDevPortfolio />} />
-                    <Route path="/portfolio/software" element={<SoftwarePortfolio />} />
-                    <Route path="/portfolio/frontend" element={<FrontendPortfolio />} />
-                    <Route path="/portfolio/datascience" element={<DataSciencePortfolio />} />
-                    {/*<Route path="/portfolio/gamedev/beatkana" element={<BeatKana />} />*/}
-                    {/*<Route path="/portfolio/gamedev/lucidity" element={<Lucidity />} />*/}
-                    {/*<Route path="/portfolio/gamedev/learntodrive" element={<LearnToDrive />} />*/}
-                    <Route path="/portfolio/software/ovo" element={<OvOProject />} />
-                    {/*<Route path="/portfolio/frontend/personal-site" element={<PersonalSite />} />*/}
+                <Routes>
+                    {routes.map((route) => (
+                        <Route
+                            key={route.path}
+                            path={route.path}
+                            element={route.element}
+                        />
+                    ))}
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </Box>
