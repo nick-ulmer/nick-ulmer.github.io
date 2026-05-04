@@ -6,9 +6,13 @@ import Footer from './components/Footer'
 import Home from './pages/Home'
 import Contact from './pages/Contact'
 import About from './pages/About'
-import Creed from './pages/Creed'
+import Belief from './pages/belief/Belief'
+import BeliefLayout from './components/BeliefLayout'
+import MdxDocumentPage from './components/MdxDocumentPage'
+
 
 import PortfolioOverview from './pages/portfolio/PortfolioOverview'
+import PortfolioLayout from './components/portfolio/PortfolioLayout'
 import GameDevPortfolio from './pages/portfolio/gamedev/GameDevPortfolio'
 import SoftwarePortfolio from './pages/portfolio/software/SoftwarePortfolio'
 import FrontendPortfolio from './pages/portfolio/frontend/FrontendPortfolio'
@@ -24,22 +28,48 @@ import NotFound from './pages/NotFound'
 const routes = [
     { path: "/", element: <Home /> },
     { path: "/contact", element: <Contact /> },
-    { path: "/creed", element: <Creed /> },
     { path: "/about", element: <About /> },
+    {
+        path: "/belief", element: <BeliefLayout />,
+        children: [
+            { index: true, element: <MdxDocumentPage /> },
+            { path: ":slug", element: <MdxDocumentPage /> },
+        ],
+    },
+    //{ path: "/portfolio", element: <PortfolioOverview /> },
+    {
+        path: "/portfolio",
+        element: <PortfolioLayout />,
+        children: [
+            { index: true, element: <PortfolioOverview /> },
 
-    { path: "/portfolio", element: <PortfolioOverview /> },
-    { path: "/portfolio/gamedev", element: <GameDevPortfolio /> },
+            { path: "gamedev", element: <GameDevPortfolio /> },
+            { path: "software", element: <SoftwarePortfolio /> },
+            { path: "frontend", element: <FrontendPortfolio /> },
+            { path: "datascience", element: <DataSciencePortfolio /> },
+
+            { path: ":category/:slug", element: <MdxDocumentPage /> },
+        ],
+    },
+    /*{ path: "/portfolio/gamedev", element: <GameDevPortfolio /> },
     { path: "/portfolio/software", element: <SoftwarePortfolio /> },
     { path: "/portfolio/frontend", element: <FrontendPortfolio /> },
-    { path: "/portfolio/datascience", element: <DataSciencePortfolio /> },
-
-    { path: "/portfolio/software/ovo", element: <OvOProject /> },
-
-    /*<Route path="/portfolio/gamedev/beatkana" element={<BeatKana />} />
-    <Route path="/portfolio/gamedev/lucidity" element={<Lucidity />} />
-    <Route path="/portfolio/gamedev/learntodrive" element={<LearnToDrive />} />
-    <Route path="/portfolio/frontend/personal-site" element={<PersonalSite />} />*/
+    { path: "/portfolio/datascience", element: <DataSciencePortfolio /> },*/
+    //{ path: "/portfolio/software/ovo", element: <OvOProject /> },
 ];
+
+function renderRoutes(routes) {
+    return routes.map(route => (
+        <Route
+            key={route.path ?? 'index'}
+            path={route.path}
+            index={route.index}
+            element={route.element}
+        >
+            {route.children && renderRoutes(route.children)}
+        </Route>
+    ));
+}
 
 export default function App() {
     const navigate = useNavigate();
@@ -47,19 +77,20 @@ export default function App() {
     useEffect(() => {
         const handleF1 = (e) => {
             if (e.key === 'F1') {
-                e.preventDefault(); // stops browser default help action
-                navigate('/about');  // or whatever you want it to do
+                e.preventDefault();
+                navigate('/about');  // Placeholder. Just directs to about page.
             }
         };
 
         window.addEventListener('keydown', handleF1);
         return () => window.removeEventListener('keydown', handleF1);
     }, []);
+
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
             <Navbar />
             <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
-                <Routes>
+                {/*}<Routes>
                     {routes.map((route) => (
                         <Route
                             key={route.path}
@@ -67,6 +98,10 @@ export default function App() {
                             element={route.element}
                         />
                     ))}
+                    <Route path="*" element={<NotFound />} />
+                </Routes>*/}
+                <Routes>
+                    {renderRoutes(routes)}
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </Box>

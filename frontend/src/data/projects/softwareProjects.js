@@ -1,5 +1,5 @@
 const softwareProjects = [
-    {
+    /*{
         id: 'ovo',
         title: 'OvO',
         category: 'software',
@@ -7,8 +7,9 @@ const softwareProjects = [
         tech: ['Java', 'Spring Boot'],
         status: 'in-progress',
         link: null,
-        thumbnail: 'https://placehold.co/600x400',
-    },
+        thumbnail: '/images/projects/ovo/ovo_data.jpg',
+        thumbnailPosition: 'center top',
+    },*/
 ];
 
 export default softwareProjects;

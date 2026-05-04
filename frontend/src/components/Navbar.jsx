@@ -20,7 +20,7 @@ export default function Navbar() {
                 <Box sx={{ flex: 1, display: 'flex', justifyContent: 'flex-end', gap: 1 }}>
                     <Button color="inherit" component={Link} to="/"><Typography variant="h6">Home</Typography></Button>
                     <Button color="inherit" component={Link} to="/portfolio"><Typography variant="h6">Portfolio</Typography></Button>
-                    <Button color="inherit" component={Link} to="/creed"><Typography variant="h6">Creed</Typography></Button>
+                    <Button color="inherit" component={Link} to="/belief"><Typography variant="h6">Belief</Typography></Button>
                     <Button color="inherit" component={Link} to="/about"><Typography variant="h6">About</Typography></Button>
                     <Button color="inherit" component={Link} to="/contact"><Typography variant="h6">Contact</Typography></Button>
                 </Box>

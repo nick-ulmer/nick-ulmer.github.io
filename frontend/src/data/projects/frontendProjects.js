@@ -7,7 +7,7 @@ const frontendProjects = [
         tech: ['React', 'Vite', 'Material UI'],
         status: 'in-progress',
         link: 'https://github.com/nick-ulmer/nick-ulmer.github.io',
-        thumbnail: 'https://placehold.co/600x400',
+        thumbnail: '/images/projects/personal-site/personal-site.png',
     },
 ];
 

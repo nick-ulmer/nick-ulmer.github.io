@@ -17,7 +17,7 @@ const gamedevProjects = [
         tech: ['GameMaker Studio'],
         status: 'hiatus',
         link: null,
-        thumbnail: '/images/projects/lucidity.png',
+        thumbnail: '/images/projects/lucidity/lucidity.png',
     },
     {
         id: 'learntodrive',

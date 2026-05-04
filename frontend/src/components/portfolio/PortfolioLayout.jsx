@@ -1,14 +1,15 @@
 import { Divider, Box, List, ListItemButton, ListItemText, Typography } from '@mui/material';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, Outlet } from 'react-router-dom';
 
 const categories = [
-    { label: 'About', path: '/creed', highlight: true },
-    { label: '3 Objects', path: '/creed/three-objects' }, // Will define individual & systematic consciousness plus the combination.
-    { label: 'To Theists', path: '/creed/to-theists' }, // Speech to convince them of the compatibility of this creed with their own.
-    { label: 'To Atheists', path: '/creed/to-atheists' }, // Speech to show an atheist that they can have true, fundamental purpose in life.
+    { label: 'All Projects', path: '/portfolio', highlight: true },
+    { label: 'Software', path: '/portfolio/software' },
+    { label: 'Frontend', path: '/portfolio/frontend' },
+    { label: 'DataScience', path: '/portfolio/datascience' },
+    { label: 'Game Development', path: '/portfolio/gamedev' },
 ];
 
-export default function CreedLayout({ children }) {
+export default function PortfolioLayout({ children }) {
     const location = useLocation();
 
     return (
@@ -57,6 +58,7 @@ export default function CreedLayout({ children }) {
             </Box>
             <Box sx={{ flexGrow: 1, p: 4 }}>
                 {children}
+                <Outlet />
             </Box>
         </Box>
     );

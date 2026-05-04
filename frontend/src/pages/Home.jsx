@@ -3,7 +3,7 @@ import { Container, Typography, Box, Button, Chip, Divider, Grid, Avatar } from 
 import { Link } from 'react-router-dom';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import projects from '../data/projects';
-import ProjectCard from '../components/ProjectCard';
+import ProjectCard from '../components/portfolio/ProjectCard';
 
 const featuredIds = ['beatkana', 'ovo', 'personal-site'];
 

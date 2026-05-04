@@ -1,15 +1,14 @@
 import { Divider, Box, List, ListItemButton, ListItemText, Typography } from '@mui/material';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, Outlet } from 'react-router-dom';
 
-const categories = [
-    { label: 'All Projects', path: '/portfolio', highlight: true },
-    { label: 'Software', path: '/portfolio/software' },
-    { label: 'Frontend', path: '/portfolio/frontend' },
-    { label: 'DataScience', path: '/portfolio/datascience' },
-    { label: 'Game Development', path: '/portfolio/gamedev' },
+const pages = [
+    { label: 'About', path: '/belief', highlight: true },
+    { label: '3 Objects', path: '/belief/three-objects' }, // Will define individual & systematic consciousness plus the combination.
+    { label: 'To Theists', path: '/belief/to-theists' }, // Speech to convince them of the compatibility of this belief with their own.
+    { label: 'To Atheists', path: '/belief/to-atheists' }, // Speech to show an atheist that they can have true, fundamental purpose in life.
 ];
 
-export default function PortfolioLayout({ children }) {
+export default function BeliefLayout({ children }) {
     const location = useLocation();
 
     return (
@@ -25,10 +24,10 @@ export default function PortfolioLayout({ children }) {
                     variant="overline"
                     sx={{ px: 2, pt: 3, pb: 1, display: 'block', opacity: 0.6 }}
                 >
-                    Portfolio
+                    Topics
                 </Typography>
                 <List>
-                    {categories.map(cat => (
+                    {pages.map(cat => (
                         <>
                             <ListItemButton
                                 key={cat.path}
@@ -58,6 +57,7 @@ export default function PortfolioLayout({ children }) {
             </Box>
             <Box sx={{ flexGrow: 1, p: 4 }}>
                 {children}
+                <Outlet />
             </Box>
         </Box>
     );

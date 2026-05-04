@@ -14,6 +14,7 @@ export default function ProjectCard({ project }) {
                 height="180"
                 image={project.thumbnail}
                 alt={project.title}
+                sx={{ objectFit: 'cover', objectPosition: project.thumbnailPosition || 'center' }}
             />
             <CardContent>
                 <Typography variant="h6" gutterBottom>

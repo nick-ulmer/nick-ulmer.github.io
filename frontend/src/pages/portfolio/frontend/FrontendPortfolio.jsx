@@ -1,4 +1,4 @@
-import PortfolioCategory from '../../../components/PortfolioCategory'
+import PortfolioCategory from '../../../components/portfolio/PortfolioCategory'
 
 export default function FrontendPortfolio() {
     return (

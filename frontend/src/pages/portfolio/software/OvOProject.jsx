@@ -3,7 +3,7 @@ import AndroidIcon from '@mui/icons-material/Android';
 import LockIcon from '@mui/icons-material/Lock';
 import TuneIcon from '@mui/icons-material/Tune';
 import projects from '../../../data/projects';
-import PortfolioLayout from '../../../components/PortfolioLayout';
+import PortfolioLayout from '../../../components/portfolio/PortfolioLayout';
 
 export default function OvO() {
     const project = projects.find(p => p.id === 'ovo');

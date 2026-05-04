@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Typography, Grid } from '@mui/material';
-import allProjects from '../data/projects';
+import allProjects from '../../data/projects';
 import ProjectCard from './ProjectCard';
 import PortfolioLayout from './PortfolioLayout';
 
@@ -12,7 +12,7 @@ export default function PortfolioCategory({ title, category }) {
     const filtered = category ? allProjects.filter(p => p.category === category) : allProjects;
 
     return (
-        <PortfolioLayout>
+        <>
             <Typography variant="h3" gutterBottom>
                 {title}
             </Typography>
@@ -23,6 +23,6 @@ export default function PortfolioCategory({ title, category }) {
                     </Grid>
                 ))}
             </Grid>
-        </PortfolioLayout>
+        </>
     );
 }
