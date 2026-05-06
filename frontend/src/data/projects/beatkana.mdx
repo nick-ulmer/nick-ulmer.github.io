@@ -1,0 +1,50 @@
+export const object = {
+    category: 'gamedev',
+    title: 'BeatKana',
+    description: 'An educational rhythm game built in Unity that teaches Japanese Hiragana through timing-based gameplay.',
+    tech: ['Unity', 'C#'],
+    status: 'prototype',
+    link: 'https://github.com/nick-ulmer/BeatKana',
+    thumbnail: 'https://placehold.co/600x400',
+    thumbnailPosition: 'center center',
+}
+
+import { Container, Typography, Box, Chip, Divider } from '@mui/material';
+import MusicNoteIcon from '@mui/icons-material/MusicNote';
+import TranslateIcon from '@mui/icons-material/Translate';
+import TuneIcon from '@mui/icons-material/Tune';
+
+<Container maxWidth="md" sx={{ py: 6 }}>
+    <Typography variant="h3" gutterBottom>
+        {object.title}
+    </Typography>
+    <Box sx={{ display: 'flex', gap: 1, mb: 3 }}>
+        {object.tech.map(t => <Chip key={t} label={t} />)}
+        <Chip label={object.status} variant="outlined" />
+    </Box>
+    <Typography variant="h5" gutterBottom>Overview</Typography>
+    <Typography variant="body1" sx={{ mb: 4 }}>{object.description} Unlike flashcard-style educational games, BeatKana reinforces real reading fluency — kana recognition speed, sound recall, and typing accuracy under timing pressure.</Typography>
+    <Divider sx={{ my: 4 }} />
+    <Typography variant="h5" gutterBottom>Core Features</Typography>
+    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, mb: 4 }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+            <MusicNoteIcon />
+            <Typography variant="body1"><strong>Rhythm-based gameplay</strong> — players input Hiragana on beat-based timelines including dakuten, palatalized combinations, and combo-note structures</Typography>
+        </Box>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+            <TranslateIcon />
+            <Typography variant="body1"><strong>Custom kana keyboard</strong> — built specifically for gameplay with progression-based key unlocking, avoiding mobile input friction and latency issues</Typography>
+        </Box>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+            <TuneIcon />
+            <Typography variant="body1"><strong>Data-driven progression</strong> — structured around language acquisition concepts with accuracy-based unlocks, mastery systems, and procedural endless modes</Typography>
+        </Box>
+    </Box>
+    <Divider sx={{ my: 4 }} />
+    <Typography variant="h5" gutterBottom>Architecture</Typography>
+    <Typography variant="body1" sx={{ mb: 2 }}>A major emphasis of the project was building reusable, scalable systems rather than hardcoded level logic. Gameplay is driven through a custom timeline and queue architecture that dynamically generates note structures and manages input timing windows, combo progression, and failure recovery via state machines.</Typography>
+    <Typography variant="body1" sx={{ mb: 4 }}>Content is authored through Unity Scriptable Objects covering kana metadata, pitch-accent information, progression data, and sound behavior — allowing the game to scale without rewriting gameplay systems. Pitch-accent data was processed through a custom pipeline that parsed public linguistic data and exported it directly into Unity assets.</Typography>
+    <Divider sx={{ my: 4 }} />
+    <Typography variant="h5" gutterBottom>Planned</Typography>
+    <Typography variant="body1">Android and iOS deployment, Katakana support, Kanji-assisted modes, adaptive difficulty, and expanded procedural content generation.</Typography>
+</Container>

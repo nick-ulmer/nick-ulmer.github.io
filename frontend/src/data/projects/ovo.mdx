@@ -1,7 +1,5 @@
 export const object = {
-    // id: 'ovo',
     category: 'software',
-
     title: 'OvO',
     description: 'A cycle tracking app for power users and security minded people.',
     tech: ['Java', 'Spring Boot'],
@@ -10,40 +8,55 @@ export const object = {
     thumbnail: '/images/projects/ovo/ovo_data.jpg',
     thumbnailPosition: 'center top',
 }
+
+export const images = [
+    '/images/projects/ovo/ovo_main.jpg',
+    '/images/projects/ovo/ovo_data.jpg',
+    '/images/projects/ovo/ovo_settings.jpg',
+    '/images/projects/ovo/ovo_notifications.jpg',
+    '/images/projects/ovo/ovo_calculations.jpg',
+]
+
 import { Container, Typography, Box, Chip, Divider } from '@mui/material';
 import AndroidIcon from '@mui/icons-material/Android';
 import LockIcon from '@mui/icons-material/Lock';
 import TuneIcon from '@mui/icons-material/Tune';
+import Gallery from '@/components/Gallery';
 
-<>
-<Container maxWidth="md" sx={{ py: 6 }}>
-    <Typography variant="h3" gutterBottom>
-        {object.title}
-    </Typography>
-    <Box sx={{ display: 'flex', gap: 1, mb: 3 }}>
-        {object.tech.map(t => <Chip key={t} label={t} />)}
-        <Chip label={object.status} variant="outlined" />
+<Container maxWidth="lg" sx={{ py: 6 }}>
+    <Box sx={{ display: 'flex', gap: 6, alignItems: 'flex-start' }}>
+        <Box sx={{ flex: 1, minWidth: 0 }}>
+            <Typography variant="h3" gutterBottom>
+                {object.title}
+            </Typography>
+            <Box sx={{ display: 'flex', gap: 1, mb: 3 }}>
+                {object.tech.map(t => <Chip key={t} label={t} />)}
+                <Chip label={object.status} variant="outlined" />
+            </Box>
+            <Typography variant="h5" gutterBottom>Overview</Typography>
+            <Typography variant="body1" sx={{ mb: 4 }}>{object.description}</Typography>
+            <Divider sx={{ my: 4 }} />
+            <Typography variant="h5" gutterBottom>Core Principles</Typography>
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, mb: 4 }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                    <LockIcon />
+                    <Typography variant="body1"><strong>Privacy first</strong> — data stays on your device, no accounts required</Typography>
+                </Box>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                    <TuneIcon />
+                    <Typography variant="body1"><strong>Power user focused</strong> — granular tracking and customization options</Typography>
+                </Box>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                    <AndroidIcon />
+                    <Typography variant="body1"><strong>Native Android</strong> — built in Kotlin for performance and reliability</Typography>
+                </Box>
+            </Box>
+            <Divider sx={{ my: 4 }} />
+            <Typography variant="h5" gutterBottom>Status</Typography>
+            <Typography variant="body1">Currently in active development. Fill in with current progress, planned features, screenshots etc.</Typography>
+        </Box>
+        <Box sx={{ width: 260, flexShrink: 0 }}>
+            <Gallery imgs={images} />
+        </Box>
     </Box>
-    <Typography variant="h5" gutterBottom> Overview </Typography>
-    <Typography variant="body1" sx={{ mb: 4 }}> {object.description} </Typography>
-    <Divider sx={{ my: 4 }} />
-    <Typography variant="h5" gutterBottom> Core Principles </Typography>
-    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, mb: 4 }}>
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-            <LockIcon />
-            <Typography variant="body1"> <strong>Privacy first</strong> — data stays on your device, no accounts required </Typography>
-        </Box>
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-            <TuneIcon />
-            <Typography variant="body1"> <strong>Power user focused</strong> — granular tracking and customization options </Typography>
-        </Box>
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-            <AndroidIcon />
-            <Typography variant="body1"> <strong>Native Android</strong> — built in Kotlin for performance and reliability </Typography>
-        </Box>
-    </Box>
-    <Divider sx={{ my: 4 }} />
-    <Typography variant="h5" gutterBottom> Status </Typography>
-    <Typography variant="body1"> Currently in active development. Fill in with current progress, planned features, screenshots etc. </Typography>
 </Container>
-</>

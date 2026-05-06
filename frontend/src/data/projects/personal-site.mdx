@@ -1,0 +1,63 @@
+export const object = {
+    category: 'frontend',
+    title: 'F1ForHelp.dev',
+    description: 'A personal portfolio site built with React, Vite, and MDX.',
+    tech: ['React', 'Vite', 'MDX', 'MUI'],
+    status: 'in-progress',
+    link: 'https://f1forhelp.dev',
+    thumbnail: '/images/projects/personal-site/personal-site.png',
+    thumbnailPosition: 'center top',
+}
+
+export const images = [
+    '/images/projects/personal-site/personal-site-mdx.png',
+    '/images/projects/personal-site/gallery-component.png',
+    '/images/projects/personal-site/files.png',
+    '/images/projects/personal-site/blooper.png',
+]
+
+import { Container, Typography, Box, Chip, Divider } from '@mui/material';
+import CodeIcon from '@mui/icons-material/Code';
+import ArticleIcon from '@mui/icons-material/Article';
+import BrushIcon from '@mui/icons-material/Brush';
+import Gallery from '@/components/Gallery';
+
+<Container maxWidth="lg" sx={{ py: 6 }}>
+    <Box sx={{ display: 'flex', gap: 6, alignItems: 'flex-start' }}>
+        <Box sx={{ flex: 1, minWidth: 0 }}>
+            <Typography variant="h3" gutterBottom>
+                {object.title}
+            </Typography>
+            <Box sx={{ display: 'flex', gap: 1, mb: 3 }}>
+                {object.tech.map(t => <Chip key={t} label={t} />)}
+                <Chip label={object.status} variant="outlined" />
+            </Box>
+            <Typography variant="h5" gutterBottom>Overview</Typography>
+            <Typography variant="body1" sx={{ mb: 4 }}>
+                This site. A personal portfolio built from scratch with React and Vite, designed to showcase projects across software, game development, and data science. Each project page is authored in MDX, making it easy to mix structured data with rich content without maintaining a backend or CMS. Built with a lot of iteration and assistance from Claude AI.
+            </Typography>
+            <Divider sx={{ my: 4 }} />
+            <Typography variant="h5" gutterBottom>Stack & Architecture</Typography>
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, mb: 4 }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                    <CodeIcon />
+                    <Typography variant="body1"><strong>React + Vite</strong> — fast dev experience with a clean build pipeline and path alias support via <code>@/</code> imports</Typography>
+                </Box>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                    <ArticleIcon />
+                    <Typography variant="body1"><strong>MDX project pages</strong> — each project is a self-contained MDX file exporting its own metadata object, making the content and the config live in one place</Typography>
+                </Box>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                    <BrushIcon />
+                    <Typography variant="body1"><strong>Material UI</strong> — MUI v9 with Emotion for consistent design tokens, layout, and component styling across the site</Typography>
+                </Box>
+            </Box>
+            <Divider sx={{ my: 4 }} />
+            <Typography variant="h5" gutterBottom>Status</Typography>
+            <Typography variant="body1">Actively developed alongside the projects it documents. New project pages and features are added on an ongoing basis.</Typography>
+        </Box>
+        <Box sx={{ maxWidth: 400, flexShrink: 0 }}>
+            <Gallery imgs={images} />
+        </Box>
+    </Box>
+</Container>

@@ -1,0 +1,68 @@
+export const object = {
+    id: 'tripdata',
+    title: 'Trip Data & Analytics',
+    category: 'datascience',
+    description: 'Automated R script that extracts screenshot text and compiles IRS-compliant mileage logs for delivery drivers.',
+    tech: ['R'],
+    status: 'complete',
+    link: null,
+    thumbnail: '/images/projects/tripdata/mileage-log.jpeg',
+    thumbnailPosition: 'center top',
+}
+
+export const images = [
+    '/images/projects/tripdata/mileage-log.jpeg',
+    '/images/projects/tripdata/part1.jpeg',
+    '/images/projects/tripdata/part2.jpeg',
+    '/images/projects/tripdata/part3.jpeg',
+    '/images/projects/tripdata/part4.jpeg',
+    '/images/projects/tripdata/part5.jpeg',
+    '/images/projects/tripdata/initial-data1.jpeg',
+    '/images/projects/tripdata/initial-data2.jpeg',
+]
+
+import { Container, Typography, Box, Chip, Divider } from '@mui/material';
+import CameraAltIcon from '@mui/icons-material/CameraAlt';
+import RouteIcon from '@mui/icons-material/Route';
+import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
+import Gallery from '@/components/Gallery';
+
+<Container maxWidth="lg" sx={{ py: 6 }}>
+    <Box sx={{ display: 'flex', gap: 6, alignItems: 'flex-start' }}>
+        <Box sx={{ flex: 1, minWidth: 0 }}>
+            <Typography variant="h3" gutterBottom>
+                {object.title}
+            </Typography>
+            <Box sx={{ display: 'flex', gap: 1, mb: 3 }}>
+                {object.tech.map(t => <Chip key={t} label={t} />)}
+                <Chip label={object.status} variant="outlined" />
+            </Box>
+            <Typography variant="h5" gutterBottom>Overview</Typography>
+            <Typography variant="body1" sx={{ mb: 4 }}>
+                An automated R pipeline built for Spark Driver gig workers. Rather than manually logging every delivery trip, drivers simply take screenshots of the Spark app during their shifts. The script handles everything else — reading the images, extracting trip data, calculating mileage via Google Maps, and producing a clean IRS-compliant log ready for tax filing.
+            </Typography>
+            <Divider sx={{ my: 4 }} />
+            <Typography variant="h5" gutterBottom>How It Works</Typography>
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, mb: 4 }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                    <CameraAltIcon />
+                    <Typography variant="body1"><strong>OCR ingestion</strong> — scans a folder of Spark Driver screenshots, parses dates from filenames, and extracts raw trip text using optical character recognition</Typography>
+                </Box>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                    <RouteIcon />
+                    <Typography variant="body1"><strong>Trip leg construction</strong> — regex identifies store origins and delivery addresses, splits multi-stop trips into individual pickup and drop-off legs, and queries the Google Maps Distance API for accurate driving mileage</Typography>
+                </Box>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                    <ReceiptLongIcon />
+                    <Typography variant="body1"><strong>IRS log generation</strong> — applies the standard IRS mileage rate, calculates deductible value per leg, and exports a structured CSV with from/to addresses, purpose, miles, duration, and dollar value</Typography>
+                </Box>
+            </Box>
+            <Divider sx={{ my: 4 }} />
+            <Typography variant="h5" gutterBottom>Status</Typography>
+            <Typography variant="body1">Complete. Built and used for the 2024 tax year. Potential future work includes a UI wrapper or automated screenshot import from mobile.</Typography>
+        </Box>
+        <Box sx={{ width: 400, flexShrink: 0 }}>
+            <Gallery imgs={images} />
+        </Box>
+    </Box>
+</Container>

@@ -1,0 +1,46 @@
+export const object = {
+    category: 'gamedev',
+    title: 'Learn To Drive',
+    description: 'A mobile educational game teaching children the mechanics of driving through realistic controls and safe driving scenarios.',
+    tech: ['GameMaker Studio 2'],
+    status: 'in-progress',
+    link: null,
+    thumbnail: 'https://placehold.co/600x400',
+    thumbnailPosition: 'center center',
+}
+
+import { Container, Typography, Box, Chip, Divider } from '@mui/material';
+import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
+import TouchAppIcon from '@mui/icons-material/TouchApp';
+import SchoolIcon from '@mui/icons-material/School';
+
+<Container maxWidth="md" sx={{ py: 6 }}>
+    <Typography variant="h3" gutterBottom>
+        {object.title}
+    </Typography>
+    <Box sx={{ display: 'flex', gap: 1, mb: 3 }}>
+        {object.tech.map(t => <Chip key={t} label={t} />)}
+        <Chip label={object.status} variant="outlined" />
+    </Box>
+    <Typography variant="h5" gutterBottom>Overview</Typography>
+    <Typography variant="body1" sx={{ mb: 4 }}>A 2D top-down mobile game designed to teach children the real mechanics of driving. Players interact with an on-screen dashboard — gas, brake, steering wheel, and other car functions — to navigate driving scenarios safely and build foundational road awareness.</Typography>
+    <Divider sx={{ my: 4 }} />
+    <Typography variant="h5" gutterBottom>Core Features</Typography>
+    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, mb: 4 }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+            <TouchAppIcon />
+            <Typography variant="body1"><strong>Realistic controls</strong> — interactive dashboard with gas, brake, steering wheel, and other car functions mapped to touch input</Typography>
+        </Box>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+            <DirectionsCarIcon />
+            <Typography variant="body1"><strong>Top-down driving</strong> — 2D above-view perspective built for mobile with an open world to explore</Typography>
+        </Box>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+            <SchoolIcon />
+            <Typography variant="body1"><strong>Educational focus</strong> — designed for children to learn safe driving habits and understand how a car operates before ever sitting behind a real wheel</Typography>
+        </Box>
+    </Box>
+    <Divider sx={{ my: 4 }} />
+    <Typography variant="h5" gutterBottom>Status</Typography>
+    <Typography variant="body1">Currently in active development. Fill in with current progress, planned features, screenshots, etc.</Typography>
+</Container>

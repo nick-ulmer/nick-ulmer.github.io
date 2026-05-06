@@ -1,0 +1,27 @@
+export const object = {
+    category: 'gamedev',
+    title: 'Lucidity',
+    description: 'A personal project made in GMS, currently on hiatus.',
+    tech: ['GameMaker Studio'],
+    status: 'hiatus',
+    link: null,
+    thumbnail: '/images/projects/lucidity/lucidity.png',
+    thumbnailPosition: 'center 35%',
+}
+
+import { Container, Typography, Box, Chip, Divider } from '@mui/material';
+
+<Container maxWidth="md" sx={{ py: 6 }}>
+    <Typography variant="h3" gutterBottom>
+        {object.title}
+    </Typography>
+    <Box sx={{ display: 'flex', gap: 1, mb: 3 }}>
+        {object.tech.map(t => <Chip key={t} label={t} />)}
+        <Chip label={object.status} variant="outlined" />
+    </Box>
+    <Typography variant="h5" gutterBottom>Overview</Typography>
+    <Typography variant="body1" sx={{ mb: 4 }}>{object.description}</Typography>
+    <Divider sx={{ my: 4 }} />
+    <Typography variant="h5" gutterBottom>Status</Typography>
+    <Typography variant="body1">Currently on hiatus. Fill in with history, future plans, etc.</Typography>
+</Container>
