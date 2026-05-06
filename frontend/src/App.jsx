@@ -17,13 +17,11 @@ import GameDevPortfolio from './pages/portfolio/gamedev/GameDevPortfolio'
 import SoftwarePortfolio from './pages/portfolio/software/SoftwarePortfolio'
 import FrontendPortfolio from './pages/portfolio/frontend/FrontendPortfolio'
 import DataSciencePortfolio from './pages/portfolio/datascience/DataSciencePortfolio'
-//import BeatKana from './pages/portfolio/gamedev/BeatKana'
-//import Lucidity from './pages/portfolio/gamedev/Lucidity'
-//import LearnToDrive from './pages/portfolio/gamedev/LearnToDrive'
 import OvOProject from './pages/portfolio/software/OvOProject'
-//import PersonalSite from './pages/portfolio/frontend/PersonalSite'
 
 import NotFound from './pages/NotFound'
+
+import LinkedInBanner from './pages/dev/LinkedInBanner'
 
 const routes = [
     { path: "/", element: <Home /> },
@@ -36,7 +34,6 @@ const routes = [
             { path: ":slug", element: <MdxDocumentPage /> },
         ],
     },
-    //{ path: "/portfolio", element: <PortfolioOverview /> },
     {
         path: "/portfolio",
         element: <PortfolioLayout />,
@@ -51,11 +48,6 @@ const routes = [
             { path: ":category/:slug", element: <MdxDocumentPage /> },
         ],
     },
-    /*{ path: "/portfolio/gamedev", element: <GameDevPortfolio /> },
-    { path: "/portfolio/software", element: <SoftwarePortfolio /> },
-    { path: "/portfolio/frontend", element: <FrontendPortfolio /> },
-    { path: "/portfolio/datascience", element: <DataSciencePortfolio /> },*/
-    //{ path: "/portfolio/software/ovo", element: <OvOProject /> },
 ];
 
 function renderRoutes(routes) {
@@ -90,18 +82,9 @@ export default function App() {
         <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
             <Navbar />
             <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
-                {/*}<Routes>
-                    {routes.map((route) => (
-                        <Route
-                            key={route.path}
-                            path={route.path}
-                            element={route.element}
-                        />
-                    ))}
-                    <Route path="*" element={<NotFound />} />
-                </Routes>*/}
                 <Routes>
                     {renderRoutes(routes)}
+                    {/* dev route */} <Route path="/dev/linkedin-banner" element={<LinkedInBanner />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </Box>
