@@ -8,8 +8,13 @@ export default function About() {
 
     return (
         <Container maxWidth="md" sx={{ py: 6 }}>
-            <Paper elevation={0} sx={{ p: 4, borderRadius: 2, backgroundColor: '#ffffff' }}>
-                <Box sx={{ display: 'flex', gap: 6, alignItems: 'flex-start' }}>
+            <Paper elevation={0} sx={{ p: { xs: 2, md: 4 }, borderRadius: 2, backgroundColor: '#ffffff' }}>
+                <Box sx={{
+                    display: 'flex',
+                    gap: { xs: 3, md: 6 },
+                    alignItems: { xs: 'center', md: 'flex-start' },
+                    flexDirection: { xs: 'column', md: 'row' },
+                }}>
 
                     {/* Image */}
                     <Box
@@ -17,9 +22,10 @@ export default function About() {
                         src="/images/photo_1.jpg"
                         alt="Nicholas A. Ball Ulmer"
                         sx={{
-                            width: 280,
-                            minWidth: 280,
-                            height: 360,
+                            width: { xs: '100%', md: 280 },
+                            minWidth: { xs: 0, md: 280 },
+                            maxWidth: { xs: 280, md: 'none' },
+                            height: { xs: 'auto', md: 360 },
                             borderRadius: 2,
                             objectFit: 'cover',
                             objectPosition: 'center center',

@@ -1,9 +1,6 @@
 import { Box, Typography, IconButton, Divider } from '@mui/material';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import EmailIcon from '@mui/icons-material/Email';
-
 import f1Logo from '../assets/f1-logo.svg'
+import contacts from '@/data/contacts'
 
 export default function Footer() {
     return (
@@ -29,15 +26,11 @@ export default function Footer() {
                     </Box>
                 </Box>
                 <Box>
-                    <IconButton color="inherit" href="https://github.com/nick-ulmer" target="_blank">
-                        <GitHubIcon />
-                    </IconButton>
-                    <IconButton color="inherit" href="https://linkedin.com/in/nicholas-ball-ulmer/" target="_blank">
-                        <LinkedInIcon />
-                    </IconButton>
-                    <IconButton color="inherit" href="mailto:nball1000@gmail.com">
-                        <EmailIcon />
-                    </IconButton>
+                    {contacts.map(contact => (
+                        <IconButton color="inherit" href={contact.href} target="_blank">
+                            {contact.icon}
+                        </IconButton>
+                    ))}
                 </Box>
             </Box>
             <Typography variant="body2" sx={{ mt: 2, opacity: 0.5, textAlign: 'center' }}>

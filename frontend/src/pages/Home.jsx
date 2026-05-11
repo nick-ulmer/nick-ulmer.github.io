@@ -24,7 +24,9 @@ export default function Home() {
         <Box>
             {/* Hero */}
             <Box sx={{ backgroundColor: '#212121', color: 'white', py: 10, px: 4, textAlign: 'center' }}>
-                <Typography variant="h2" fontWeight="bold" gutterBottom>
+
+                <Typography variant="h2" fontWeight="bold" gutterBottom
+                    sx={{ fontSize: { xs: '2rem', md: '3.75rem' } }}>
                     {"{ F1 For Help }"}
                 </Typography>
                 <Avatar
@@ -40,10 +42,11 @@ export default function Home() {
                 >
                     IMG
                 </Avatar>
-                <Typography variant="h2" fontWeight="bold" gutterBottom>
+                <Typography variant="h2" fontWeight="bold" gutterBottom
+                    sx={{ fontSize: { xs: '2rem', md: '3.75rem' } }}>
                     Nicholas A. Ball Ulmer
                 </Typography>
-                <Typography variant="h5" sx={{ opacity: 0.7, mb: 4 }}>
+                <Typography variant="h5" sx={{ opacity: 0.7, mb: 4, fontSize: { xs: '1rem', md: '1.5rem' } }}>
                     Full-Stack Developer · Game Developer · Systems Builder
                 </Typography>
                 <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center' }}>
