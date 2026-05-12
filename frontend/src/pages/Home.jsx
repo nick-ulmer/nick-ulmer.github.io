@@ -90,6 +90,18 @@ export default function Home() {
                     </Typography>
                 </Box>
 
+                {/*<Divider sx={{ mb: 8 }} />
+
+                <Typography variant="h4" gutterBottom>
+                    Github Contribution Graph
+                </Typography>
+                <Box
+                  component="img"
+                  src="https://ghchart.rshah.org/nick-ulmer"
+                  alt="GitHub contribution graph"
+                  sx={{ width: '100%', borderRadius: 1, mb: 8 }}
+                />*/}
+
                 <Divider sx={{ mb: 8 }} />
 
                 {/* Featured Projects */}
