@@ -15,7 +15,7 @@ const skills = [
 
 export default function Home() {
     useEffect(() => {
-        document.title = 'Nicholas A. Ball Ulmer';
+        document.title = 'Home | Nicholas A. Ball Ulmer';
     }, []);
 
     const featured = projects.filter(p => featuredIds.includes(p.id));

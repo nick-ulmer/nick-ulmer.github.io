@@ -1,20 +1,28 @@
 import { useEffect } from 'react';
 import { Typography, Grid } from '@mui/material';
+import { useParams } from 'react-router-dom';
 import allProjects from '../../data/projects';
+import { categories } from '../../data/categories';
 import ProjectCard from './ProjectCard';
-import PortfolioLayout from './PortfolioLayout';
 
-export default function PortfolioCategory({ title, category }) {
+export default function PortfolioCategory() {
+    const { category } = useParams();
+    const label = category
+        ? categories.find(c => c.slug === category)?.label ?? category
+        : 'All Projects';
+
     useEffect(() => {
-        document.title = title;
-    }, []);
+        document.title = `${label} | Nicholas A. Ball Ulmer`;
+    }, [label]);
 
-    const filtered = category ? allProjects.filter(p => p.category === category) : allProjects;
+    const filtered = category
+        ? allProjects.filter(p => p.category === category)
+        : allProjects;
 
     return (
         <>
             <Typography variant="h3" gutterBottom>
-                {title}
+                {label}
             </Typography>
             <Grid container spacing={4} alignItems="stretch">
                 {filtered.map(project => (

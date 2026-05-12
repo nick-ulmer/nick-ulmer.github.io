@@ -1,31 +1,23 @@
-import { Alert, Box } from '@mui/material'
+import { Box } from '@mui/material'
 import { useNavigate, Routes, Route } from 'react-router-dom'
 import { useEffect } from 'react';
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
 import Contact from './pages/Contact'
+import Resume from './pages/Resume'
 import About from './pages/About'
-import Belief from './pages/belief/Belief'
 import BeliefLayout from './components/BeliefLayout'
 import MdxDocumentPage from './components/MdxDocumentPage'
-
-
-import PortfolioOverview from './pages/portfolio/PortfolioOverview'
 import PortfolioLayout from './components/portfolio/PortfolioLayout'
-import GameDevPortfolio from './pages/portfolio/gamedev/GameDevPortfolio'
-import SoftwarePortfolio from './pages/portfolio/software/SoftwarePortfolio'
-import FrontendPortfolio from './pages/portfolio/frontend/FrontendPortfolio'
-import DataSciencePortfolio from './pages/portfolio/datascience/DataSciencePortfolio'
-import OvOProject from './pages/portfolio/software/OvOProject'
-
+import PortfolioCategory from './components/portfolio/PortfolioCategory'
 import NotFound from './pages/NotFound'
-
 import LinkedInBanner from './pages/dev/LinkedInBanner'
 
 const routes = [
     { path: "/", element: <Home /> },
     { path: "/contact", element: <Contact /> },
+    { path: "/resume", element: <Resume /> },
     { path: "/about", element: <About /> },
     {
         path: "/belief", element: <BeliefLayout />,
@@ -38,13 +30,8 @@ const routes = [
         path: "/portfolio",
         element: <PortfolioLayout />,
         children: [
-            { index: true, element: <PortfolioOverview /> },
-
-            { path: "gamedev", element: <GameDevPortfolio /> },
-            { path: "software", element: <SoftwarePortfolio /> },
-            { path: "frontend", element: <FrontendPortfolio /> },
-            { path: "datascience", element: <DataSciencePortfolio /> },
-
+            { index: true, element: <PortfolioCategory /> },
+            { path: ":category", element: <PortfolioCategory /> },
             { path: ":category/:slug", element: <MdxDocumentPage /> },
         ],
     },

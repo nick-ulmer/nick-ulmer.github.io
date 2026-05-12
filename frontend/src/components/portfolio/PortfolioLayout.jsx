@@ -2,13 +2,14 @@ import { useState } from 'react';
 import { Divider, Box, List, ListItemButton, ListItemText, Typography, IconButton, Drawer } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link, useLocation, Outlet } from 'react-router-dom';
+import { categories } from '../../data/categories';
 
-const categories = [
+const navItems = [
     { label: 'All Projects', path: '/portfolio', highlight: true },
-    { label: 'Software', path: '/portfolio/software' },
-    { label: 'Frontend', path: '/portfolio/frontend' },
-    { label: 'DataScience', path: '/portfolio/datascience' },
-    { label: 'Game Development', path: '/portfolio/gamedev' },
+    ...categories.map(cat => ({
+        label: cat.label,
+        path: `/portfolio/${cat.slug}`,
+    })),
 ];
 
 function SidebarContent({ onNavigate }) {
@@ -22,10 +23,9 @@ function SidebarContent({ onNavigate }) {
                 Portfolio
             </Typography>
             <List>
-                {categories.map(cat => (
-                    <>
+                {navItems.map(cat => (
+                    <Box key={cat.path}>
                         <ListItemButton
-                            key={cat.path}
                             component={Link}
                             to={cat.path}
                             selected={location.pathname === cat.path}
@@ -42,7 +42,7 @@ function SidebarContent({ onNavigate }) {
                             />
                         </ListItemButton>
                         {cat.highlight && <Divider sx={{ borderColor: { xs: 'rgba(0,0,0,.75)', md: 'rgba(255,255,255,0.15)' }, my: 0.5 }} />}
-                    </>
+                    </Box>
                 ))}
             </List>
         </>
