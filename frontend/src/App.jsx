@@ -14,6 +14,8 @@ import PortfolioCategory from './components/portfolio/PortfolioCategory'
 import NotFound from './pages/NotFound'
 import LinkedInBanner from './pages/dev/LinkedInBanner'
 
+import LearnToDriveGame from './pages/portfolio/LearnToDriveGame'
+
 const routes = [
     { path: "/", element: <Home /> },
     { path: "/contact", element: <Contact /> },
@@ -35,6 +37,7 @@ const routes = [
             { path: ":category/:slug", element: <MdxDocumentPage /> },
         ],
     },
+    { path: "/LearnToDriveGame", element: <LearnToDriveGame /> },
 ];
 
 function renderRoutes(routes) {
