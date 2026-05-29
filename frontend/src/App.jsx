@@ -14,7 +14,8 @@ import PortfolioCategory from './components/portfolio/PortfolioCategory'
 import NotFound from './pages/NotFound'
 import LinkedInBanner from './pages/dev/LinkedInBanner'
 
-import LearnToDriveGame from './pages/portfolio/LearnToDriveGame'
+import LearnToDriveGame from './pages/portfolio/game/LearnToDriveGame.jsx'
+import DaydreamGame from './pages/portfolio/game/DaydreamGame.jsx'
 
 const routes = [
     { path: "/", element: <Home /> },
@@ -40,6 +41,7 @@ const routes = [
         path: "/dev", element: <Outlet />,
         children: [
             { path: "LearnToDriveGame", element: <LearnToDriveGame /> },
+            { path: "DaydreamGame", element: <DaydreamGame /> },
             { path: "linkedin-banner", element: <LinkedInBanner /> },
         ],
     },
