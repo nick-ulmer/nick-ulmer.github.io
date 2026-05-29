@@ -1,5 +1,5 @@
 import { Box } from '@mui/material'
-import { useNavigate, Routes, Route } from 'react-router-dom'
+import { useNavigate, Routes, Route, Outlet } from 'react-router-dom'
 import { useEffect } from 'react';
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -29,15 +29,20 @@ const routes = [
         ],
     },
     {
-        path: "/portfolio",
-        element: <PortfolioLayout />,
+        path: "/portfolio", element: <PortfolioLayout />,
         children: [
             { index: true, element: <PortfolioCategory /> },
             { path: ":category", element: <PortfolioCategory /> },
             { path: ":category/:slug", element: <MdxDocumentPage /> },
         ],
     },
-    { path: "/LearnToDriveGame", element: <LearnToDriveGame /> },
+    {
+        path: "/dev", element: <Outlet />,
+        children: [
+            { path: "LearnToDriveGame", element: <LearnToDriveGame /> },
+            { path: "linkedin-banner", element: <LinkedInBanner /> },
+        ],
+    },
 ];
 
 function renderRoutes(routes) {
@@ -74,7 +79,6 @@ export default function App() {
             <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
                 <Routes>
                     {renderRoutes(routes)}
-                    {/* dev route */} <Route path="/dev/linkedin-banner" element={<LinkedInBanner />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </Box>

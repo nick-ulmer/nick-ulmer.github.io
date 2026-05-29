@@ -1,0 +1,124 @@
+export const object = {
+    category: 'full-stack',
+    title: 'F1ForHelp API',
+    description: 'A Laravel REST API backend powering the contact form, counters, and future features for f1forhelp.dev.',
+    tech: ['Laravel', 'PHP', 'Railway'],
+    status: 'in-progress',
+    link: 'https://github.com/nick-ulmer/f1forhelp-api',
+    thumbnail: '/images/projects/personal-site-backend/backend.png',
+    thumbnailPosition: 'left top',
+}
+
+import { useState, useEffect } from 'react';
+import { Container, Typography, Box, Chip, Divider, Button, CircularProgress } from '@mui/material';
+import ApiIcon from '@mui/icons-material/Api';
+import LockIcon from '@mui/icons-material/Lock';
+import CloudIcon from '@mui/icons-material/Cloud';
+import AddIcon from '@mui/icons-material/Add';
+import { getCounter, incrementCounter } from '@/api/client';
+
+export default function Page() {
+    const [count, setCount] = useState(null);
+    const [counting, setCounting] = useState(false);
+
+    useEffect(() => {
+        getCounter()
+            .then(res => res.json())
+            .then(data => setCount(data.count))
+            .catch(() => setCount('—'));
+    }, []);
+
+    const handleIncrement = async () => {
+        setCounting(true);
+        try {
+            const res = await incrementCounter();
+            const data = await res.json();
+            setCount(data.count);
+        } catch {
+            // silent fail
+        } finally {
+            setCounting(false);
+        }
+    };
+
+    return (
+        <Container maxWidth="lg" sx={{ py: 6 }}>
+            <Box sx={{ display: 'flex', gap: 6, alignItems: 'flex-start' }}>
+                <Box sx={{ flex: 1, minWidth: 0 }}>
+                    <Typography variant="h3" gutterBottom>
+                        {object.title}
+                    </Typography>
+                    <Box sx={{ display: 'flex', gap: 1, mb: 3 }}>
+                        {object.tech.map(t => <Chip key={t} label={t} />)}
+                        <Chip label={object.status} variant="outlined" />
+                    </Box>
+                    <Typography variant="h5" gutterBottom>Overview</Typography>
+                    <Typography variant="body1" sx={{ mb: 4 }}>
+                        A Laravel REST API built to power the backend of f1forhelp.dev. Handles contact form submissions, exposes a visit counter, and is designed to grow alongside the frontend as new features are added. Deployed on Railway with a public API URL.
+                    </Typography>
+                    <Divider sx={{ my: 4 }} />
+                    <Typography variant="h5" gutterBottom>Endpoints</Typography>
+                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, mb: 4 }}>
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                            <ApiIcon />
+                            <Typography variant="body1"><strong>POST /api/contact</strong> — accepts name, email, and message. Returns 201 on success, 422 on validation failure, 429 on rate limit</Typography>
+                        </Box>
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                            <ApiIcon />
+                            <Typography variant="body1"><strong>GET /api/counter</strong> — returns the current visit count</Typography>
+                        </Box>
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                            <ApiIcon />
+                            <Typography variant="body1"><strong>POST /api/counter/increment</strong> — increments the count</Typography>
+                        </Box>
+                    </Box>
+                    <Divider sx={{ my: 4 }} />
+                    <Typography variant="h5" gutterBottom>Security</Typography>
+                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, mb: 4 }}>
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                            <LockIcon />
+                            <Typography variant="body1"><strong>Rate limiting</strong> — 5 requests per minute per IP via Laravel's throttle middleware</Typography>
+                        </Box>
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                            <LockIcon />
+                            <Typography variant="body1"><strong>Honeypot field</strong> — bot submissions rejected if the hidden website field is populated</Typography>
+                        </Box>
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                            <LockIcon />
+                            <Typography variant="body1"><strong>IP hashing</strong> — SHA-256 with a salt, never stored raw and never returned in responses</Typography>
+                        </Box>
+                    </Box>
+                    <Divider sx={{ my: 4 }} />
+                    <Typography variant="h5" gutterBottom>Hosting</Typography>
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 4 }}>
+                        <CloudIcon />
+                        <Typography variant="body1"><strong>Railway</strong> — deployed and live at <code>f1forhelp-api-production.up.railway.app</code></Typography>
+                    </Box>
+                    <Divider sx={{ my: 4 }} />
+                    <Typography variant="h5" gutterBottom>Planned</Typography>
+                    <Typography variant="body1" sx={{ mb: 4 }}>Analytics and page view tracking, game leaderboards, project reactions, and a devlog/changelog API.</Typography>
+                    <Divider sx={{ my: 4 }} />
+
+                    {/* Live demo */}
+                    <Typography variant="h5" gutterBottom>Live Demo</Typography>
+                    <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
+                        This counter is backed by the live API. Hit the button and the counter persists across sessions and visitors.
+                    </Typography>
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 3 }}>
+                        <Typography variant="h4" fontWeight="bold">
+                            {count === null ? <CircularProgress size={28} /> : count}
+                        </Typography>
+                        <Button
+                            variant="outlined"
+                            startIcon={counting ? <CircularProgress size={16} /> : <AddIcon />}
+                            onClick={handleIncrement}
+                            disabled={counting}
+                        >
+                            Increment
+                        </Button>
+                    </Box>
+                </Box>
+            </Box>
+        </Container>
+    );
+}
