@@ -1,0 +1,124 @@
+{
+  "schema": 1,
+  "generated_at": "2026-11-22T17:41:04.503Z",
+  "site": "https://f1forhelp.dev",
+  "documents": [
+    {
+      "id": "beatkana",
+      "type": "project",
+      "title": "BeatKana",
+      "url": "https://f1forhelp.dev/#/portfolio/gamedev/beatkana",
+      "metadata": {
+        "category": "gamedev",
+        "tech": [
+          "Unity",
+          "C#"
+        ],
+        "status": "prototype",
+        "description": "An educational rhythm game built in Unity that teaches Japanese Hiragana through timing-based gameplay.",
+        "link": "https://github.com/nick-ulmer/BeatKana"
+      },
+      "text": "### BeatKana\n\n##### Overview\n\nAn educational rhythm game built in Unity that teaches Japanese Hiragana through timing-based gameplay. Unlike flashcard-style educational games, BeatKana reinforces real reading fluency — kana recognition speed, sound recall, and typing accuracy under timing pressure.\n\n##### Core Features\n\nRhythm-based gameplay — players input Hiragana on beat-based timelines including dakuten, palatalized combinations, and combo-note structures\n\nCustom kana keyboard — built specifically for gameplay with progression-based key unlocking, avoiding mobile input friction and latency issues\n\nData-driven progression — structured around language acquisition concepts with accuracy-based unlocks, mastery systems, and procedural endless modes\n\n##### Architecture\n\nA major emphasis of the project was building reusable, scalable systems rather than hardcoded level logic. Gameplay is driven through a custom timeline and queue architecture that dynamically generates note structures and manages input timing windows, combo progression, and failure recovery via state machines.\n\nContent is authored through Unity Scriptable Objects covering kana metadata, pitch-accent information, progression data, and sound behavior — allowing the game to scale without rewriting gameplay systems. Pitch-accent data was processed through a custom pipeline that parsed public linguistic data and exported it directly into Unity assets.\n\n##### Planned\n\nAndroid and iOS deployment, Katakana support, Kanji-assisted modes, adaptive difficulty, and expanded procedural content generation."
+    },
+    {
+      "id": "learntodrive",
+      "type": "project",
+      "title": "Learn To Drive",
+      "url": "https://f1forhelp.dev/#/portfolio/gamedev/learntodrive",
+      "metadata": {
+        "category": "gamedev",
+        "tech": [
+          "GameMaker Studio 2"
+        ],
+        "status": "in-progress",
+        "description": "A mobile educational game teaching children the mechanics of driving through realistic controls and safe driving scenarios.",
+        "link": "https://github.com/nick-ulmer/LearnToDrive"
+      },
+      "text": "### Learn To Drive\n\nPlay In-Browser Demo\n\n##### Overview\n\nA 2D top-down mobile game designed to teach children the real mechanics of driving. Players interact with an on-screen dashboard — gas, brake, steering wheel, and other car functions — to navigate driving scenarios safely and build foundational road awareness.\n\n##### Core Features\n\nRealistic controls — interactive dashboard with gas, brake, steering wheel, and other car functions mapped to touch input\n\nTop-down driving — 2D above-view perspective built for mobile with an open world to explore\n\nEducational focus — designed for children to learn safe driving habits and understand how a car operates before ever sitting behind a real wheel\n\n##### Status\n\nCurrently in active development. Fill in with current progress, planned features, screenshots, etc."
+    },
+    {
+      "id": "lucidity",
+      "type": "project",
+      "title": "Lucidity",
+      "url": "https://f1forhelp.dev/#/portfolio/gamedev/lucidity",
+      "metadata": {
+        "category": "gamedev",
+        "tech": [
+          "GameMaker Studio"
+        ],
+        "status": "hiatus",
+        "description": "A personal project made in GMS, currently on hiatus."
+      },
+      "text": "### Lucidity\n\n##### Overview\n\nA personal project made in GMS, currently on hiatus.\n\n##### Status\n\nCurrently on hiatus. Fill in with history, future plans, etc."
+    },
+    {
+      "id": "ovo",
+      "type": "project",
+      "title": "OvO",
+      "url": "https://f1forhelp.dev/#/portfolio/full-stack/ovo",
+      "metadata": {
+        "category": "full-stack",
+        "tech": [
+          "Java",
+          "Spring Boot"
+        ],
+        "status": "in-progress",
+        "description": "A cycle tracking app for power users and security minded people.",
+        "link": "https://github.com/nick-ulmer/OvO_tracking_app"
+      },
+      "text": "### OvO\n\n##### Overview\n\nA cycle tracking app for power users and security minded people.\n\n##### Core Principles\n\nPrivacy first — data stays on your device, no accounts required\n\nPower user focused — granular tracking and customization options\n\nNative Android — built in Kotlin for performance and reliability\n\n##### Status\n\nCurrently in active development. Fill in with current progress, planned features, screenshots etc."
+    },
+    {
+      "id": "personal-side-backend",
+      "type": "project",
+      "title": "F1ForHelp API",
+      "url": "https://f1forhelp.dev/#/portfolio/full-stack/personal-side-backend",
+      "metadata": {
+        "category": "full-stack",
+        "tech": [
+          "Laravel",
+          "PHP",
+          "Railway"
+        ],
+        "status": "in-progress",
+        "description": "A Laravel REST API backend powering the contact form, counters, and future features for f1forhelp.dev.",
+        "link": "https://github.com/nick-ulmer/f1forhelp-api"
+      },
+      "text": "##### Overview\n\nA Laravel REST API built to power the backend of f1forhelp.dev. Handles contact form submissions, exposes a visit counter, and is designed to grow alongside the frontend as new features are added. Deployed on Railway with a public API URL.\n\n##### Endpoints\n\nPOST /api/contact — accepts name, email, and message. Returns 201 on success, 422 on validation failure, 429 on rate limit\n\nGET /api/counter — returns the current visit count\n\nPOST /api/counter/increment — increments the count\n\n##### Security\n\nRate limiting — 5 requests per minute per IP via Laravel's throttle middleware\n\nHoneypot field — bot submissions rejected if the hidden website field is populated\n\nIP hashing — SHA-256 with a salt, never stored raw and never returned in responses\n\n##### Hosting\n\nRailway — deployed and live at f1forhelp-api-production.up.railway.app\n\n##### Planned\n\nAnalytics and page view tracking, game leaderboards, project reactions, and a devlog/changelog API.\n\n##### Live Demo\n\nThis counter is backed by the live API. Hit the button and the counter persists across sessions and visitors.\n\nIncrement"
+    },
+    {
+      "id": "personal-site",
+      "type": "project",
+      "title": "F1ForHelp.dev",
+      "url": "https://f1forhelp.dev/#/portfolio/full-stack/personal-site",
+      "metadata": {
+        "category": "full-stack",
+        "tech": [
+          "React",
+          "Vite",
+          "MDX",
+          "MUI"
+        ],
+        "status": "in-progress",
+        "description": "A personal portfolio site built with React, Vite, and MDX.",
+        "link": "https://github.com/nick-ulmer/nick-ulmer.github.io"
+      },
+      "text": "### F1ForHelp.dev\n\n##### Overview\n\nThis site. A personal portfolio built from scratch with React and Vite, designed to showcase projects across software, game development, and data science. Each project page is authored in MDX, making it easy to mix structured data with rich content without maintaining a backend or CMS. Built with a lot of iteration and assistance from Claude AI.\n\n##### Stack & Architecture\n\nReact + Vite — fast dev experience with a clean build pipeline and path alias support via @/ imports\n\nMDX project pages — each project is a self-contained MDX file exporting its own metadata object, making the content and the config live in one place\n\nMaterial UI — MUI v9 with Emotion for consistent design tokens, layout, and component styling across the site\n\n##### Status\n\nActively developed alongside the projects it documents. New project pages and features are added on an ongoing basis."
+    },
+    {
+      "id": "tripdata",
+      "type": "project",
+      "title": "Trip Data & Analytics",
+      "url": "https://f1forhelp.dev/#/portfolio/datascience/tripdata",
+      "metadata": {
+        "category": "datascience",
+        "tech": [
+          "R"
+        ],
+        "status": "complete",
+        "description": "Automated R script that extracts screenshot text and compiles IRS-compliant mileage logs for delivery drivers."
+      },
+      "text": "### Trip Data & Analytics\n\n##### Overview\n\nAn automated R pipeline built for Spark Driver gig workers. Rather than manually logging every delivery trip, drivers simply take screenshots of the Spark app during their shifts. The script handles everything else — reading the images, extracting trip data, calculating mileage via Google Maps, and producing a clean IRS-compliant log ready for tax filing.\n\n##### How It Works\n\nOCR ingestion — scans a folder of Spark Driver screenshots, parses dates from filenames, and extracts raw trip text using optical character recognition\n\nTrip leg construction — regex identifies store origins and delivery addresses, splits multi-stop trips into individual pickup and drop-off legs, and queries the Google Maps Distance API for accurate driving mileage\n\nIRS log generation — applies the standard IRS mileage rate, calculates deductible value per leg, and exports a structured CSV with from/to addresses, purpose, miles, duration, and dollar value\n\n##### Status\n\nComplete. Built and used for the 2024 tax year. Potential future work includes a UI wrapper or automated screenshot import from mobile."
+    }
+  ]
+}
